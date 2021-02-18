@@ -250,11 +250,12 @@ public class Trimmer {
       int width = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
       int height = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
       // METADATA_KEY_VIDEO_ROTATION returns a float or int or might not exist
+       int orientation = 0;
       try {
-        int orientation = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION));
+        orientation = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION));
       } catch(Exception NullPointerException){
         //null
-        int orientation = 0;
+       
       }
       
       // METADATA_KEY_FRAMERATE returns a float or int or might not exist
