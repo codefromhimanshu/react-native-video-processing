@@ -231,7 +231,12 @@ public class VideoEdit {
         value = (int) Math.round(Float.parseFloat(string));
       } catch(Exception floatException){
         //not float
-        return null;
+          try {
+            value = (int) Math.round(Float.parseFloat(string));
+          } catch(Exception NullPointerException){
+            //null
+            return null;
+          }
       }
     }
     return value;
