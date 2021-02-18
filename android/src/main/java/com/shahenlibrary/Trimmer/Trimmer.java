@@ -249,7 +249,8 @@ public class Trimmer {
       int duration = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_DURATION));
       int width = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
       int height = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
-      int orientation = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION));
+      // METADATA_KEY_VIDEO_ROTATION returns a float or int or might not exist
+      int orientation = VideoEdit.getIntFromString(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION));
       // METADATA_KEY_FRAMERATE returns a float or int or might not exist
       Integer frameRate = VideoEdit.getIntFromString(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_FRAMERATE));
       // METADATA_KEY_VARIANT_BITRATE returns a int or might not exist
